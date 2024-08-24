@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Write a function that displays current date & time in your
+        // browser.
+document.write("<h1>Current Time</h1>")
+        function tellTime(){
+            var now= new Date();
+            var getHrs=now.getHours();
+            var getMs=now.getMinutes();
+            document.write("Currentt Time"+getHrs+":"+getMs);
+        }
+        tellTime();
+
+  
+        // 2. Write a function that takes first & last name and then it
+        // greets the user using his full name.
+        function greetUser(){
+            var firstName= prompt("Enter Your First Name");
+            var lastName= prompt("Enter Your Last Name");
+            alert("Hello"+' '+firstName+' '+lastName);
+
+
+        }
+        greetUser();
+        // 3. Write a function that adds two numbers (input by user)
+        // and returns the sum of two numbers.
+
+        function addNumber(){
+            var num1= prompt("Write one number");
+            var num2= prompt("write second number");
+            var sum=Number(num1)+Number(num2);
+            alert(sum);
+
+
+        }
+      addNumber();
+
+//       4. Calculator:
+// Write a function that takes three arguments num1, num2
+// & operator & compute the desired operation. Return and
+// show the desired result in your browser.
+
+function calculator(num1, num2, operator) {
+    var result;
+    
+    if (operator === '+') {
+        result = num1 + num2;
+    } else if (operator === '-') {
+        result = num1 - num2;
+    } else if (operator === '*') {
+        result = num1 * num2;
+    } else if (operator === '/') {
+        if (num2 !== 0) {
+            result = num1 / num2;
+        } else {
+            alert("Error: Division by zero is not allowed.");
+            return;
+        }
+    } else {
+        alert("Error: Invalid operator.");
+        return;
+    }
+    
+    alert("The result is: " + result);
+}
+
+
+calculator(10, 5, '+');
+
+
+
+// Write a function that squares its argument.
+function squareNumber(num) {
+    return num * num;
+}
+
+
+var result = squareNumber(8);
+alert("The square of the number is: " + result);
+
+
+// 6. Write a function that computes factorial of a number.
+
+function factorial(num) {
+    var result = 1;
+    for (var i = 1; i <= num; i++) {
+        result *= i;
+    }
+    return result;
+}
+
+
+var result = factorial(4);
+alert("The factorial of the number is: " + result);
+
+
+// 7. Write a function that take start and end number as inputs
+// & display counting in your browser.
+document.write("<h1>Counting</h1>")
+function displayCounting(start, end) {
+    var counting = "";
+    for (var i = start; i <= end; i++) {
+        counting += i + " ";
+    }
+   document.write("Counting: " + counting.trim());
+}
+
+
+displayCounting(1, 15);
+
+// 8. Write a nested function that computes hypotenuse of a
+// right angle triangle.
+// Hypotenuse2 = Base2 + Perpendicular2
+document.write("<h1>Calculate Hypotenuse</h1>")
+
+function calculateHypotenuse() {
+    var base = prompt("Enter the base of the triangle:");
+    var perpendicular = prompt("Enter the perpendicular of the triangle:");
+    
+    function calculateSquare(x) {
+        return x * x;
+    }
+    
+    var baseSquared = calculateSquare(base);
+    var perpendicularSquared = calculateSquare(perpendicular);
+    var hypotenuseSquared = baseSquared + perpendicularSquared;
+    var hypotenuse = Math.sqrt(hypotenuseSquared);
+    
+    alert("The hypotenuse of the triangle is: " + hypotenuse);
+    document.write("The hypotenuse of the triangle is: " + hypotenuse);
+
+}
+
+
+calculateHypotenuse();
+
+
+
+// 9. Write a function that calculates the area of a rectangle.
+// A = width * height
+// Pass width and height in following manner:
+
+// i. Arguments as value
+// ii. Arguments as variables
+document.write("<h1>Calculate Rectangle Area (Arguments as value)</h1>")
+
+function calculateRectangleArea(width, height) {
+    return width * height;
+}
+
+var area = calculateRectangleArea(5, 10);
+alert("The area of the rectangle is: " + area);
+document.write("The area of the rectangle is: " + area);
+
+document.write("<h1>Calculate Rectangle Area(Arguments as variables)</h1>")
+
+function calculateRectangleArea(width, height) {
+    return width * height;
+}
+
+// Example usage with variables
+var rectangleWidth = 5;
+var rectangleHeight = 10;
+var area = calculateRectangleArea(rectangleWidth, rectangleHeight);
+alert("The area of the rectangle is: " + area);
+document.write("The area of the rectangle is: " + area);
+
+// 10. Write a JavaScript function that checks whether a passed
+// string is palindrome or not?
+// A palindrome is word, phrase, or sequence that reads the same backward as
+// forward, e.g., madam.
+
+
+
+function isPalindrome(str) {
+    // Convert the string to lowercase and remove non-alphanumeric characters
+    str = str.toLowerCase().replace(/[^a-z0-9]/g, '');
+    
+    // Reverse the cleaned string
+    var reversedStr = str.split('').reverse().join('');
+    
+    // Check if the cleaned string is equal to its reverse
+    return str === reversedStr;
+}
+
+// Example usage
+var testString = prompt("Enter a string to check if it's a palindrome:");
+if (isPalindrome(testString)) {
+    alert("'" + testString + "' is a palindrome.");
+} else {
+    alert("'" + testString + "' is not a palindrome.");
+}
+
+
+// 11. Write a JavaScript function that accepts a string as a
+// parameter and converts the first letter of each word of the
+// string in upper case.
+// EXAMPLE STRING : 'the quick brown fox'
+// EXPECTED OUTPUT : 'The Quick Brown Fox'
+
+function capitalizeFirstLetter(str) {
+    // Split the string into words
+    var words = str.split(' ');
+    
+    // Map over each word, capitalizing the first letter and keeping the rest of the word as is
+    var capitalizedWords = words.map(function(word) {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+    });
+    
+    // Join the words back into a single string
+    return capitalizedWords.join(' ');
+}
+
+// Example usage
+var exampleString = 'the quick brown fox';
+var result = capitalizeFirstLetter(exampleString);
+alert(result);
+
+
+// 12. Write a JavaScript function that accepts a string as a
+// parameter and find the longest word within the string.
+// EXAMPLE STRING : 'Web Development Tutorial'
+// EXPECTED OUTPUT : 'Development'
+
+function findLongestWord(str) {
+    // Split the string into words
+    var words = str.split(' ');
+    
+    // Initialize the variable to store the longest word
+    var longestWord = '';
+    
+    // Iterate over each word to find the longest one
+    for (var i = 0; i < words.length; i++) {
+        if (words[i].length > longestWord.length) {
+            longestWord = words[i];
+        }
+    }
+    
+    return longestWord;
+}
+
+// Example usage
+var exampleString = 'Web Development Tutorial';
+var longestWord = findLongestWord(exampleString);
+alert("The longest word is: " + longestWord);
+
+
+// 13. Write a JavaScript function that accepts two arguments, a
+// string and a letter and the function will count the number of occurrences of the specified letter within the string.
+// Sample arguments : 'JSResourceS.com', 'o'
+
+
+
+
+function countLetterOccurrences(str, letter) {
+    // Initialize a counter to keep track of occurrences
+    var count = 0;
+    
+    // Convert the string to lowercase and letter to lowercase for case-insensitive comparison
+    str = str.toLowerCase();
+    letter = letter.toLowerCase();
+    
+    // Loop through each character in the string
+    for (var i = 0; i < str.length; i++) {
+        if (str[i] === letter) {
+            count++;
+        }
+    }
+    
+    return count;
+}
+
+// Example usage
+var sampleString = 'JSResourceS.com';
+var letterToCount = 'o';
+var occurrences = countLetterOccurrences(sampleString, letterToCount);
+alert("The letter '" + letterToCount + "' occurs " + occurrences + " times.");
+
+
+// 14. The Geometrizer
+// Create 2 functions that calculate properties of a circle, using
+// the definitions here.
+// Create a function called calcCircumference:
+// • Pass the radius to the function.
+// • Calculate the circumference based on the radius, and output
+// "The circumference is NN".
+// Create a function called calcArea:
+// • Pass the radius to the function.
+// • Calculate the area based on the radius, and output "The area
+// is NN".
+
+// Circumference of circle = 2πr
+// Area of circle = πr2
+// Function to calculate the circumference of a circle
+function calcCircumference(radius) {
+    var circumference = 2 * Math.PI * radius;
+    console.log("The circumference is " + circumference.toFixed(2));
+}
+
+// Function to calculate the area of a circle
+function calcArea(radius) {
+    var area = Math.PI * radius * radius;
+    console.log("The area is " + area.toFixed(2));
+}
+
+// Example usage
+var radius = parseFloat(prompt("Enter the radius of the circle:"));
+calcCircumference(radius);
+calcArea(radius);
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
